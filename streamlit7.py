@@ -5,7 +5,7 @@ from streamlit_webrtc import VideoTransformerBase, webrtc_streamer
 def main():
     st.title("PENCACAH LALULINTAS")
     img1 = 'ban.JPG'
-    st.image(img1)
+    st.image(img1,channels='RGB')
 
 if __name__ == '__main__':
     try:
