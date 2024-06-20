@@ -1,8 +1,3 @@
-def main():
-  print('tes')
+import streamlit as st
 
-if __name__ == '__main__':
-    try:
-        main()
-    except SystemExit:
-        pass
+st.write('tes')
