@@ -1,2 +1,2 @@
-streamlit-webrtc 
+streamlit
 numpy>=1.26
