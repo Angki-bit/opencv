@@ -8,7 +8,7 @@ def main():
     file = 'ban.jpg'
     classes = ["ban"]
     img = cv2.imread(str(file))
-
+    st.image(img,channels='RGB')
 
 if __name__ == '__main__':
     try:
