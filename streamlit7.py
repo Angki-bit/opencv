@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from tracker import *
 import tempfile
-import cv2
+
 
 def main():
   st.title("PENCACAH LALULINTAS")
