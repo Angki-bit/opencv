@@ -5,7 +5,7 @@ from tracker import *
 import tempfile
 
 
-def main:
+def main():
   st.write('OKKKKK')
 
 if __name__ == '__main__':
