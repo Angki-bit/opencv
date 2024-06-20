@@ -3,4 +3,13 @@ import numpy as np
 import pandas as pd
 from tracker import *
 import tempfile
-st.write('tes')
+
+
+def main:
+  st.write('OKKKKK')
+
+if __name__ == '__main__':
+    try:
+        main()
+    except SystemExit:
+        pass
