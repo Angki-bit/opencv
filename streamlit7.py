@@ -1,5 +1,5 @@
 import streamlit as st
-import opencv as cv2
+
 def main():
     st.title("PENCACAH LALULINTAS")
     col1,col2,col3,col4 = st.columns(4)
