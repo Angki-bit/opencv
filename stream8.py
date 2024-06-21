@@ -122,9 +122,6 @@ def main():
     jm= st.empty()
     while cap.isOpened():
         ret, frame = cap.read()
-        dim = (600, 450)
-        frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
-        
         if not ret:
             st.write('selesai')
             break
