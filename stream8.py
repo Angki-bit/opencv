@@ -7,7 +7,11 @@ from tracker import *
 import pandas as pd
 def main():
     st.title("PENCACAH LALULINTAS")
-    
+    cap = cv2.VideoCapture('potong.mp4')
+    tempat = st.empty()
+    while cap.isOpened():
+        ret, frame = cap.read()
+        tempat.image(frame,channels='RGB')
 if __name__ == '__main__':
     try:
         main()
