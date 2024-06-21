@@ -122,10 +122,7 @@ def main():
     jm= st.empty()
     while cap.isOpened():
         ret, frame = cap.read()
-        if not ret:
-            st.write('selesai')
-            break
-           
+        
         tempat.image(frame,channels='RGB')
         df = pd.DataFrame([[motor,mobil,va,0,0,0,0]], columns=("I","II/III/IV","V a","V b","VI a","VI b","VIIa/b/c"))
         tab.table(df)
