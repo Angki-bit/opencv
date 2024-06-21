@@ -124,50 +124,7 @@ def main():
         ret, frame = cap.read()
         dim = (600, 450)
         frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
-        classIds, confs, bbox = net.detect(frame,confThreshold=thres)
-        bbox = list(bbox)
-        confs = list(np.array(confs).reshape(1,-1)[0])
-        confs = list(map(float,confs))  
-        det = []
-        detect = []
-        h=0;
-       
-        indices = cv2.dnn.NMSBoxes(bbox,confs,thres,nms_threshold) 
-        if len(classIds) != 0:
-           
-            for i in indices:
-                box = bbox[indices[0]]
-                confidence = str(round(confs[indices[0]],2))
-                x,y,w,h = box[0],box[1],box[2],box[3]
-                det.append([x, y, w, h])
-                boxes_ids = tracker.update(det)
-                for box_id in boxes_ids:
-                   
-                    x, y, w, h, id = box_id
-                    x1 = int(w/2)
-                    y1 = int(h/2)
-                    cx = x + x1
-                    cy = y + y1
-                    x2 = x+w
-                    detect.append([cx,cy])
-                    result = cv2.pointPolygonTest(points, (int(cx),int(cy)), False)
-                    if (result == 1) :
-                        #print(gam)
-                        roi = frame[int(y)-20:int(y)+int(h)+10,int(x):int(x)+int(w)+10]
-                        cv2.putText(frame, str(id), (cx, cy),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255),2)
-                        if (len(id_nya)==0):
-                            id_nya.append(id)
-                            gambar1.image(roi)
-                            tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
-   
-                        gam = gam + 1
-                        if (gam == 5):
-                            gam = 1
-   
-                            
-        if len(id_nya) == 100 :
-            id_nya =[]
-        cv2.polylines(frame,[points],True,[0,255,0],thickness=1)
+        
         if not ret:
             st.write('selesai')
             break
