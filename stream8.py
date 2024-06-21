@@ -159,68 +159,11 @@ def main():
                             id_nya.append(id)
                             gambar1.image(roi)
                             tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
-                            cv2.imwrite(tf,roi)
-                            hasil = analisis(tf)
-                            jumlah = jumlah + 1
-                            jm.write(jumlah)
-                            h1.write(hasil)
-                            if (hasil == 'motor' or hasil == 'lainnya'):
-                                motor = motor+1
-                            if (hasil == 'mobil' or hasil == 'pickup'):
-                                mobil = mobil + 1
-                            if (hasil == 'truk sedang'):
-                                va = va + 1
-                            
-                        if (id not in id_nya):
-                            id_nya.append(id)
-                            hasil = analisis('capture/'+str(id)+'.jpg')
-                            if (hasil == 'motor' or hasil == 'lainnya'):
-                                motor = motor+1
-                            if (hasil == 'mobil' or hasil == 'pickup'):
-                                mobil = mobil + 1
-                            if (hasil == 'truk sedang'):
-                                va = va + 1
-                            if (gam==1):
-                                jumlah = jumlah + 1
-                                jm.write(jumlah)
-                                tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
-                                cv2.imwrite(tf,roi)
-                                hasil = analisis(tf)
-                                gambar1.image(roi)
-                                h1.write(hasil)
-                            if (gam==2):
-                                jumlah = jumlah + 1
-                                jm.write(jumlah)
-                                tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
-                                cv2.imwrite(tf,roi)
-                                hasil = analisis(tf)
-                                gambar2.image(roi)
-                                h2.write(hasil)
-                            if (gam==3):
-                                jumlah = jumlah + 1
-                                tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
-                                cv2.imwrite(tf,roi)
-                                hasil = analisis(tf)
-                                jm.write(jumlah)
-                                gambar3.image(roi)
-                                h3.write(hasil)
-                            if (gam==4):
-                                jumlah = jumlah + 1
-                                tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
-                                cv2.imwrite(tf,roi)
-                                hasil = analisis(tf)
-                                jm.write(jumlah)
-                                gambar4.image(roi)
-                                h4.write(hasil)
-                        
-                        
+   
                         gam = gam + 1
                         if (gam == 5):
                             gam = 1
-                        
-                        
-                       
-                        
+   
                             
         if len(id_nya) == 100 :
             id_nya =[]
