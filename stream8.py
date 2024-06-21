@@ -85,7 +85,7 @@ def main():
     points = np.array([[x1,y1],[x4,y4],[x3,y3],[x2,y2]],np.int32)
     tempat = st.empty()
     tracker = EuclideanDistTracker()
-    cap = cv2.VideoCapture('495.mp4')
+    cap = cv2.VideoCapture('potong.mp4')
     with open('coco.names','r') as f:
         classes = f.read().splitlines()
     caffe = "frozen_inference_graph.pb"
