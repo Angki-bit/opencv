@@ -158,8 +158,9 @@ def main():
                         if (len(id_nya)==0):
                             id_nya.append(id)
                             gambar1.image(roi)
-                            cv2.imwrite('capture/'+str(id)+'.jpg',roi)
-                            hasil = analisis('capture/'+str(id)+'.jpg')
+                            tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
+                            cv2.imwrite(tf,roi)
+                            hasil = analisis(tf)
                             jumlah = jumlah + 1
                             jm.write(jumlah)
                             h1.write(hasil)
@@ -182,29 +183,32 @@ def main():
                             if (gam==1):
                                 jumlah = jumlah + 1
                                 jm.write(jumlah)
-                                cv2.imwrite('capture/'+str(id)+'.jpg',roi)
-                                hasil = analisis('capture/'+str(id)+'.jpg')
+                                tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
+                                cv2.imwrite(tf,roi)
+                                hasil = analisis(tf)
                                 gambar1.image(roi)
                                 h1.write(hasil)
                             if (gam==2):
                                 jumlah = jumlah + 1
-                                cv2.imwrite('capture/'+str(id)+'.jpg',roi)
                                 jm.write(jumlah)
-                                hasil = analisis('capture/'+str(id)+'.jpg')
+                                tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
+                                cv2.imwrite(tf,roi)
+                                hasil = analisis(tf)
                                 gambar2.image(roi)
                                 h2.write(hasil)
                             if (gam==3):
                                 jumlah = jumlah + 1
-                                
-                                cv2.imwrite('capture/'+str(id)+'.jpg',roi)
-                                hasil = analisis('capture/'+str(id)+'.jpg')
+                                tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
+                                cv2.imwrite(tf,roi)
+                                hasil = analisis(tf)
                                 jm.write(jumlah)
                                 gambar3.image(roi)
                                 h3.write(hasil)
                             if (gam==4):
                                 jumlah = jumlah + 1
-                                cv2.imwrite('capture/'+str(id)+'.jpg',roi)
-                                hasil = analisis('capture/'+str(id)+'.jpg')
+                                tf = tempfile.NamedTemporaryFile(suffix=".jpg",prefix="Compare_")
+                                cv2.imwrite(tf,roi)
+                                hasil = analisis(tf)
                                 jm.write(jumlah)
                                 gambar4.image(roi)
                                 h4.write(hasil)
