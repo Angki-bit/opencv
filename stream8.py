@@ -11,7 +11,7 @@ def main():
     tempat = st.empty()
     while cap.isOpened():
         ret, frame = cap.read()
-        tempat.image(frame,channels='RGB')
+    
 if __name__ == '__main__':
     try:
         main()
