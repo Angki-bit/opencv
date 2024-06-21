@@ -64,68 +64,7 @@ def analisis(roi):
 
 def main():
     st.title("PENCACAH LALULINTAS")
-    col1,col2,col3,col4 = st.columns(4)
-    with col1:
-        x1 = st.slider('x1',min_value=0,max_value=1000,value=11)
-        x4 = st.slider('x4',min_value=0,max_value=1000,value=244)
-       
-    with col2:
-        y1 = st.slider('y1',min_value=0,max_value=1000,value=159)
-        y4 = st.slider('y4',min_value=0,max_value=1000,value=427)
-      
-    with col3:
-        x2 = st.slider('x2',min_value=0,max_value=1000,value=61)
-        x3 = st.slider('x3',min_value=0,max_value=1000,value=305)
-        
-    with col4:
-        y2 = st.slider('y2',min_value=0,max_value=1000,value=140)
-        y3 = st.slider('y3',min_value=0,max_value=1000,value=378)
-       
-    st.sidebar.title('Setting')
     
-    points = np.array([[x1,y1],[x4,y4],[x3,y3],[x2,y2]],np.int32)
-    tempat = st.empty()
-    tracker = EuclideanDistTracker()
-    cap = cv2.VideoCapture('potong.mp4')
-    with open('coco.names','r') as f:
-        classes = f.read().splitlines()
-    caffe = "frozen_inference_graph.pb"
-    config_file = "ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
-    net = cv2.dnn_DetectionModel(caffe, config_file)
-    
-    net.setInputSize(320,320)
-    net.setInputScale(1.0/ 127.5)
-    net.setInputMean((127.5, 127.5, 127.5))
-    net.setInputSwapRB(True)
-    thres = 0.6
-    nms_threshold = 0.6
-    tab = st.empty()
-    id_nya =[]
-    gam =1
-    jumlah = 0
-    kol1,kol2,kol3,kol4 = st.columns(4)
-    motor =0
-    mobil =0
-    va =0
-    with kol1:
-        gambar1= st.empty()
-        h1 = st.empty()
-    with kol2:
-        gambar2= st.empty()
-        h2 = st.empty()
-    with kol3:
-        gambar3= st.empty()
-        h3 = st.empty()
-    with kol4:
-        gambar4= st.empty()
-        h4 = st.empty()
-    jm= st.empty()
-    while cap.isOpened():
-        ret, frame = cap.read()
-        
-        tempat.image(frame,channels='RGB')
-        df = pd.DataFrame([[motor,mobil,va,0,0,0,0]], columns=("I","II/III/IV","V a","V b","VI a","VI b","VIIa/b/c"))
-        tab.table(df)
 if __name__ == '__main__':
     try:
         main()
